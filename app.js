@@ -5,6 +5,7 @@ angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
+  var color;   // use for the color
   $scope.splitString = function()
   {
     var separator = ',';
@@ -27,24 +28,36 @@ function LunchCheckController($scope) {
       }
       $scope.count_item = $scope.count_item - empty_item;
       console.log($scope.count_item);
-      if($scope.count_item > 0 && $scope.count_item <= 3)
+      if($scope.count_item <= 3)
       {
         console.log("Enjoy!");
-        $scope.message = "Enjoy!"
+         $scope.message = "Enjoy!"
+         color = "green";
       }
-      else{
-        if($scope.count_item == 0)
-        {
-          console.log("Please enter data first");
-        }
-        else {
+      else
+         {
           console.log("Too much!");
           $scope.message = "Too much!"
-        }
-      }
+          color = "green";
+          }
     }
-    else{
+    else
+    {
       console.log("Please enter data first");
+      color = "red";
+      $scope.message = "Please enter data first !!";
+    }
+  };
+       // Treatment of the color
+  $scope.functionThatReturnsColor = function() {
+    var color_red = "color:red";
+    var color_green = "color:green";
+    if(color =="red")
+    {
+      return color_red;
+    }
+    else {
+      return color_green;
     }
   };
 }

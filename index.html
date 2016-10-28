@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
+      .message { font-size: 1.3em; font-weight: bold}
     </style>
   </head>'
 <body>
@@ -18,14 +18,17 @@
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="splitString()">Check If Too Much</button>
+             <!--<br>-->
+             <label for="comment"><h4 style="color:red"> &nbsp;I do not consider an empty item,i.e,',,' as an item towards to the count</h4></label>
              <br>
-             count item(s) : {{count_item}} <br>
-             {{message}}
-
          </div>
          <div class="form-group message">
            <!-- Your message can go here. -->
-             {{menu_string}}
+             <!--{{menu_string}} -->
+             <div style="{{functionThatReturnsColor()}}">
+             {{message}}<br>
+           </div>
+             count item(s) : {{count_item}}
          </div>
    </div>
   <script src="angular.min.js"></script>
